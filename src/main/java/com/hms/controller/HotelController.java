@@ -145,10 +145,17 @@ public class HotelController {
     }
 
     @RequestMapping(value = "/search-room", method = RequestMethod.POST)
+    @Temporal(TemporalType.DATE)
     public String searchRoomPost(@RequestParam("todate") Date todate,@RequestParam("fromdate") Date fromdate,  ModelMap model)
     {
-        roomService.findFreeRooms(fromdate, todate);
-        return "";
+        List<Room> freeRooms = roomService.findFreeRooms(fromdate, todate);
+        Booking booking = new Booking();
+        model.addAttribute("booking", booking);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        model.addAttribute("toDate", sdf.format(todate));
+        model.addAttribute("fromDate", sdf.format(fromdate));
+        addBookingAttributes(model, freeRooms);
+        return "booking";
     }
 
     /**
@@ -196,6 +203,16 @@ public class HotelController {
         model.addAttribute("user", getCurrentUser());
         model.addAttribute("loggedinuser", getPrincipal());
         model.addAttribute("rooms", roomService.findFreeRooms());
+        model.addAttribute("edit", false);
+    }
+
+    /**
+     * Attributes in new booking
+     */
+    private void addBookingAttributes(ModelMap model, List<Room> freeRooms) {
+        model.addAttribute("user", getCurrentUser());
+        model.addAttribute("loggedinuser", getPrincipal());
+        model.addAttribute("rooms", freeRooms);
         model.addAttribute("edit", false);
     }
 
