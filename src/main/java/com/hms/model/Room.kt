@@ -1,9 +1,7 @@
 package com.hms.model
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import org.hibernate.annotations.Proxy
 import java.io.Serializable
-import java.util.*
 import javax.persistence.*
 import javax.validation.constraints.NotNull
 
@@ -24,9 +22,9 @@ class Room : Serializable {
     @Column(name = "PRICE", nullable = false)
     var price: Int? = null
 
-    @NotNull
     @Column(name = "CAPACITY", nullable = false)
     var capacity: Int? = null
+    @NotNull
 
     @Column(name = "DESCRIPTION", nullable = true)
     var description: String? = null
@@ -53,8 +51,6 @@ class Room : Serializable {
     @OneToOne(mappedBy = "room", fetch = FetchType.EAGER)
     var booking: Booking? = null
 
-    @OneToMany(mappedBy = "room", fetch = FetchType.EAGER, cascade = [(CascadeType.MERGE)])
-    var images: List<RoomImages> = ArrayList()
 
     override fun equals(other: Any?): Boolean {
         if (this === other)
@@ -97,7 +93,6 @@ class Room : Serializable {
         result = 31 * result + (status?.hashCode() ?: 0)
         result = 31 * result + (type?.hashCode() ?: 0)
         result = 31 * result + (booking?.hashCode() ?: 0)
-        result = 31 * result + images.hashCode()
         return result
     }
 

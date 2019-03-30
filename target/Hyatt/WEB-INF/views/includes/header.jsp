@@ -14,7 +14,7 @@
                 <ul class="nav navbar-nav" style="float: right;">
                     <li class="nav-item">
                         <a class="nav-link waves-effect waves-light text-muted"
-                           href="<c:url value="/booking" />">BOOK ROOM</a>
+                           href="<c:url value="/search-room" />">BOOK ROOM</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link waves-effect waves-light text-muted"

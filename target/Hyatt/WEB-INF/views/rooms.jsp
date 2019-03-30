@@ -71,34 +71,34 @@
                             <div class="view overlay hm-white-slight">
                                 <c:choose>
                                     <c:when test="${room.booking != null}">
-                                        <c:choose>
+<%--                                        <c:choose>
                                             <c:when test="${fn:length(room.images) > 0}">
                                                 <img src="${room.images[0].url}"
                                                      class="img-fluid" alt=""
                                                      style="-webkit-filter: sepia(90%) hue-rotate(90deg) brightness(50%);;height: 150px; max-width: 100%; object-fit: cover; -o-object-fit: cover;"/>
                                             </c:when>
-                                            <c:otherwise>
+                                            <c:otherwise>--%>
                                                 <img src="https://res.cloudinary.com/hte2zx5qx/image/upload/dummy.jpg"
                                                      class="img-fluid"
                                                      alt=""
                                                      style="height: 150px; max-width: 100%; object-fit: cover; -o-object-fit: cover"/>
-                                            </c:otherwise>
-                                        </c:choose>
+                                            <%--</c:otherwise>--%>
+                                        <%--</c:choose>--%>
                                     </c:when>
                                     <c:otherwise>
-                                        <c:choose>
+                  <%--                      <c:choose>
                                             <c:when test="${fn:length(room.images) > 0}">
                                                 <img src="${room.images[0].url}"
                                                 class="img-fluid" alt=""
                                                 style="height: 150px; max-width: 100%; object-fit: cover; -o-object-fit: cover;"/>
-                                            </c:when>
-                                            <c:otherwise>
+                                            </c:when>--%>
+                                            <%--<c:otherwise>--%>
                                                 <img src="https://res.cloudinary.com/hte2zx5qx/image/upload/dummy.jpg"
                                                      class="img-fluid"
                                                      alt=""
-                                                     style="height: 150px; max-width: 100%; object-fit: cover; -o-object-fit: cover"/>
+      <%--                                               style="height: 150px; max-width: 100%; object-fit: cover; -o-object-fit: cover"/>
                                             </c:otherwise>
-                                        </c:choose>
+                                        </c:choose>--%>
                                     </c:otherwise>
                                 </c:choose>
 
@@ -182,12 +182,12 @@
                                     </c:if>
                                     <p>Beds : ${room.bed} and Room for ${room.capacity} people</p>
                                     <div>
-                                        <c:if test="${fn:length(room.images) > 0}">
+<%--                                        <c:if test="${fn:length(room.images) > 0}">
                                             <c:forEach items="${room.images}" var="image">
                                                 <img src="${image.url}" class="roomImages"
                                                      style="height: 400px;width: 100%;object-fit: cover; -o-object-fit: cover"/>
                                             </c:forEach>
-                                        </c:if>
+                                        </c:if>--%>
                                     </div>
                                 </div>
                             </div>

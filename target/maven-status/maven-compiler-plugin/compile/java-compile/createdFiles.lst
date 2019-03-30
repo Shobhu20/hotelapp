@@ -6,7 +6,6 @@ com/hms/security/SecurityConfiguration.class
 com/hms/configuration/SocialConfig.class
 com/hms/converter/StringToRoomConverter.class
 com/hms/service/BookingService.class
-com/hms/service/RoomImageService.class
 com/hms/validator/RoomValidator.class
 com/hms/security/OAuthServiceProvider.class
 com/hms/security/CustomSocialUserDetailsService.class
