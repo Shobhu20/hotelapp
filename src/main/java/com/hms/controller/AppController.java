@@ -1,10 +1,8 @@
 package com.hms.controller;
 
 import com.hms.helpers.Constant;
-import com.hms.model.Feedback;
 import com.hms.model.User;
 import com.hms.model.UserProfile;
-import com.hms.repository.FeedbackRepository;
 import com.hms.service.BookingService;
 import com.hms.service.RoomTypeService;
 import com.hms.service.UserProfileService;
@@ -40,7 +38,7 @@ public class AppController {
 
     private final UserService userService;
     private final UserProfileService userProfileService;
-    private final FeedbackRepository feedbackRepository;
+    //private final FeedbackRepository feedbackRepository;
     private final RoomTypeService roomTypeService;
     private final BookingService bookingService;
     private final MessageSource messageSource;
@@ -48,7 +46,7 @@ public class AppController {
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public AppController(UserService userService, UserProfileService userProfileService, RoomTypeService roomTypeService, BookingService bookingService, MessageSource messageSource, AuthenticationTrustResolver authenticationTrustResolver, PasswordEncoder passwordEncoder, FeedbackRepository feedbackRepository) {
+    public AppController(UserService userService, UserProfileService userProfileService, RoomTypeService roomTypeService, BookingService bookingService, MessageSource messageSource, AuthenticationTrustResolver authenticationTrustResolver, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.userProfileService = userProfileService;
         this.roomTypeService = roomTypeService;
@@ -56,7 +54,7 @@ public class AppController {
         this.messageSource = messageSource;
         this.authenticationTrustResolver = authenticationTrustResolver;
         this.passwordEncoder = passwordEncoder;
-        this.feedbackRepository = feedbackRepository;
+        //this.feedbackRepository = feedbackRepository;
     }
 
     /**
@@ -252,17 +250,7 @@ public class AppController {
     /**
      * Generic Mapping
      */
-    @RequestMapping(value = "/contact")
-    public String contact(ModelMap model) {
-        model.addAttribute("feedback", new Feedback());
-        return "contact";
-    }
 
-    @RequestMapping(value = "/contact", method = RequestMethod.POST)
-    public String feedback(@ModelAttribute Feedback feedback) {
-        feedbackRepository.save(feedback);
-        return "redirect:/";
-    }
 
     @RequestMapping(value = "/about")
     public String about() {

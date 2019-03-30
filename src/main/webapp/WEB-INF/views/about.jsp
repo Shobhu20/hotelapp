@@ -17,7 +17,7 @@
                 <h2 class="h2-responsive font-weight-bold">About Hyatt</h2>
                 <h4 class="h4-responsive">A 7-star Restaurant located in Huawei. We provide family, executive and deluxe
                     type rooms.</h4>
-                <button class="btn btn-default btn-lg" onclick="window.location='/contact'">Get in Touch</button>
+
             </div>
             <div class="col-sm-4">
             </div>
