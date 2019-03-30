@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
-    <link href="<c:url value='/static/images/favicon.ico' />" rel="icon" type="image/x-icon">
+    <link href="<c:url value='/static/images/favicon.png' />" rel="icon" type="image/x-icon">
 
     <link type="text/css" rel="stylesheet" href="<c:url value='/static/css/bootstrap.min.css' />">
     <link type="text/css" rel="stylesheet" href="<c:url value='/static/css/bootstrap-responsive.min.css' />">

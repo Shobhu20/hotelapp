@@ -103,10 +103,6 @@
                 </br>
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
-                <div>
-                    <label for="pictures" data-icon="e">Select Images</label> <br>
-                    <input id="pictures" type="file" name="pictures" size="25" multiple/>
-                </div>
                 </br>
                 <div style="text-align: center">
                     <input class="btn btn-blue-grey waves-button waves-light" style="width: 240px; height: 40px"

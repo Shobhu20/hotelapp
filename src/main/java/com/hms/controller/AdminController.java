@@ -12,12 +12,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -28,17 +26,15 @@ public class AdminController {
     private final UserService userService;
     private final RoomService roomService;
     private final RoomTypeService roomTypeService;
-    private final RoomImageService roomImagesService;
     private final BookingService bookingService;
     private final UserProfileService userProfileService;
     private final MessageSource messageSource;
 
     @Autowired
-    public AdminController(@Lazy UserService userService, RoomService roomService, RoomTypeService roomTypeService, RoomImageService roomImagesService, BookingService bookingService, UserProfileService userProfileService, MessageSource messageSource) {
+    public AdminController(@Lazy UserService userService, RoomService roomService, RoomTypeService roomTypeService, BookingService bookingService, UserProfileService userProfileService, MessageSource messageSource) {
         this.userService = userService;
         this.roomService = roomService;
         this.roomTypeService = roomTypeService;
-        this.roomImagesService = roomImagesService;
         this.bookingService = bookingService;
         this.userProfileService = userProfileService;
         this.messageSource = messageSource;
@@ -66,7 +62,6 @@ public class AdminController {
         model.addAttribute("totaladmins", admins.size());
         model.addAttribute("totalbookings", bookings.size());
         model.addAttribute("totalrooms", rooms.size());
-        model.addAttribute("images", roomImagesService.findAll());
     }
 
     @RequestMapping(value = "/admin")
@@ -232,8 +227,6 @@ public class AdminController {
 
         room.setStatus(Constant.ROOM_STATUS.UNVERIFIED);
         roomService.saveRoom(room);
-        saveImage(room, request.getFiles("pictures"));
-
         redirectAttrs.addFlashAttribute("success", "Room " + room.getName() + " was added successfully");
         return "redirect:/admin";
     }
@@ -299,97 +292,10 @@ public class AdminController {
         r.setDescription(room.getDescription());
         r.setName(room.getName());
 
-        // check image attachments
-        List<MultipartFile> images = request.getFiles("pictures");
-        if (images.size() != 0 && !(images.size() == 1 && images.get(0).getSize() == 0)) {
-            saveImage(room, images);
-            r.setImages(room.getImages());
-        }
-        roomService.updateRoom(r);
-
         redirectAttrs.addFlashAttribute("success", "Room " + room.getName() + " was updated successfully");
         return "redirect:/admin";
     }
 
-    /**
-     * Delete all images belonging to the room
-     *
-     * @param room images to be deleted from
-     */
-    private void deleteRoomImages(Room room) {
-        List<String> publicIds = new ArrayList<>();
-        for (RoomImages image : room.getImages()) {
-            publicIds.add(image.getName());
-        }
-
-       /* final String CLOUDINARY_URL = "cloudinary://758212679231862:MhnrcmQObbrLDfGdQI4T1kVhj8M@hte2zx5qx";
-        Cloudinary cloudinary = new Cloudinary(CLOUDINARY_URL);
-        try {
-            cloudinary.api().deleteResources(publicIds, ObjectUtils.emptyMap());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
-
-        roomImagesService.deleteByRoomId(room.getId());
-    }
-
-    /**
-     * Save room images in the database and local storage
-     *
-     * @param room   images to be saved to
-     * @param images multipart
-     */
-    private void saveImage(final Room room, List<MultipartFile> images) throws IOException {
-/*        final String CLOUDINARY_URL = "cloudinary://758212679231862:MhnrcmQObbrLDfGdQI4T1kVhj8M@hte2zx5qx";
-        Cloudinary cloudinary = new Cloudinary(CLOUDINARY_URL);
-
-        for (int i = 0; i < images.size(); i++) {
-            String roomName = room.getName();
-            roomName = roomName.replaceAll("\\s", "");
-            roomName = roomName + "_" + i;
-
-            cloudinary.uploader().upload(images.get(i).getBytes(),
-                    ObjectUtils.asMap("public_id", roomName));
-
-            String extension = ".jpg";
-            if (images.get(i).getContentType().toLowerCase().contains("png")) {
-                extension = ".png";
-            } else if (images.get(i).getContentType().toLowerCase().contains("tif")) {
-                extension = ".tif";
-            }
-
-            RoomImages roomImage = new RoomImages();
-            roomImage.setName(roomName);
-            roomImage.setUrl(cloudinary.url().generate(roomName) + extension);
-            roomImage.setRoom(room);
-            roomImagesService.save(roomImage);
-        }*/
-    }
-
-    @RequestMapping(value = "/admin/room/images/delete-{id}")
-    public String deleteRoomImage(@PathVariable Integer id, RedirectAttributes redirectAttrs) {
-        if (roomImagesService.findById(id) == null) {
-            redirectAttrs.addFlashAttribute("success", "Room with Id " + id + "does not exit.");
-            return "redirect:/admin";
-        }
-
-        List<String> publicIds = new ArrayList<>();
-        publicIds.add(roomImagesService.findById(id).getName());
-/*
-
-        final String CLOUDINARY_URL = "cloudinary://758212679231862:MhnrcmQObbrLDfGdQI4T1kVhj8M@hte2zx5qx";
-        Cloudinary cloudinary = new Cloudinary(CLOUDINARY_URL);
-        try {
-            cloudinary.api().deleteResources(publicIds, ObjectUtils.emptyMap());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-*/
-
-        roomImagesService.deleteById(id);
-        redirectAttrs.addFlashAttribute("success", "Image No " + id + " was removed successfully.");
-        return "redirect:/admin";
-    }
 
     /**
      * Deletes the room and redirects url with appropriate message
@@ -404,8 +310,6 @@ public class AdminController {
             redirectAttrs.addFlashAttribute("success", "Room with Id " + id + "does not exit.");
             return "redirect:/admin";
         }
-
-        roomImagesService.deleteByRoomId(id);
         roomService.deleteRoomById(id);
         redirectAttrs.addFlashAttribute("success", "Room No " + id + " was removed successfully.");
         return "redirect:/admin";

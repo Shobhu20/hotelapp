@@ -82,7 +82,9 @@
                                 </br>
                                 <div>
                                     <label for="arrivalTime">Arrival Time</label>
-                                    <form:input path="arrivalTime" id="arrivalTime" type="date" required="required"/>
+                                    <p>${fromDate}</p>
+
+                                    <form:input path="arrivalTime" id="arrivalTime" type="hidden" required="required" value="${fromDate}"/>
                                 </div>
                                 <div class="has-error">
                                     <form:errors path="arrivalTime" class="help-inline material-red-text "/>
@@ -90,8 +92,9 @@
                                 </br>
                                 <div>
                                     <label for="departureTime">Departure Time</label>
-                                    <form:input path="departureTime" id="departureTime" type="date"
-                                                required="required"/>
+                                    <p>${toDate}</p>
+                                    <form:input path="departureTime" id="departureTime" type="hidden"
+                                                required="required" value="${toDate}"/>
                                 </div>
                                 <div class="has-error">
                                     <form:errors path="departureTime" class="help-inline material-red-text "/>
