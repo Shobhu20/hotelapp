@@ -30,10 +30,7 @@
                         <a class="nav-link waves-effect waves-light white-text"
                            href="<c:url value="/about" />">ABOUT</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link waves-effect waves-light white-text"
-                           href="<c:url value="/contact" />">CONTACT</a>
-                    </li>
+
 
                     <sec:authorize access="isAuthenticated()">
                         <li class="nav-item dropdown"

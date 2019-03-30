@@ -3,11 +3,9 @@ package com.hms.service;
 import com.hms.helpers.Constant;
 import com.hms.model.User;
 import com.hms.repository.UserRepository;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.social.connect.UserProfile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -91,13 +89,5 @@ public class UserService {
         List<User> users = new ArrayList<>();
         for (Integer id : ids) users.add(findById(id));
         return users;
-    }
-
-    public static User fromSocialUserProfile(@NotNull UserProfile userProfile) {
-        User user = new User();
-        user.setEmail(userProfile.getEmail());
-        user.setFirstName(userProfile.getFirstName());
-        user.setLastName(userProfile.getLastName());
-        return user;
     }
 }
