@@ -30,10 +30,7 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import static com.hms.helpers.Constant.ROOM_STATUS.VERIFIED;
@@ -124,6 +121,7 @@ public class HotelController {
     public String searchRoomPost(@RequestParam("todate") Date todate,@RequestParam("fromdate") Date fromdate,  ModelMap model)
     {
         List<Room> freeRooms = roomService.findFreeRooms(fromdate, todate);
+        filterFreeRooms(freeRooms);
         Booking booking = new Booking();
         model.addAttribute("booking", booking);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -135,6 +133,18 @@ public class HotelController {
 
         addBookingAttributes(model, freeRooms);
         return "booking";
+    }
+
+    private void filterFreeRooms(List<Room> freeRooms) {
+        Set<String> roomType = new HashSet<>();
+        List<Room> duplicateType = new ArrayList<>();
+        for (Room r : freeRooms) {
+            if(roomType.contains(r.getType().getType()))
+                duplicateType.add(r);
+            else
+                roomType.add(r.getType().getType());
+        }
+        freeRooms.removeAll(duplicateType);
     }
 
     /**
