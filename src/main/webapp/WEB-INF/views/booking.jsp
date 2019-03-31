@@ -46,10 +46,10 @@
                    class="form-horizontal">
             <form:input type="hidden" path="id" id="id"/>
             <form:hidden path="status"/>
-            <div>
+            <div style="margin-top: 15%">
                 <c:choose>
                     <c:when test="${fn:length(rooms) > 0}">
-                        <h1 class="heading h1-responsive material-red center-div white-text card-header">BOOK A
+                        <h1 class="heading h1-responsive center-div light-blue white-text card-header">BOOK A
                             ROOM</h1>
 
                         <div class="form-group card card-block">
@@ -82,7 +82,7 @@
                                 </div>
                                 </br>
                                 <div>
-                                    <label for="arrivalTime">Arrival Time</label>
+                                    <label for="arrivalTime">Arrival On</label>
                                     <p>${fromDate}</p>
 
                                     <form:input path="arrivalTime" id="arrivalTime" type="hidden" required="required" value="${fromDate}"/>
@@ -92,7 +92,7 @@
                                 </div>
                                 </br>
                                 <div>
-                                    <label for="departureTime">Departure Time</label>
+                                    <label for="departureTime">Departure On</label>
                                     <p>${toDate}</p>
                                     <form:input path="departureTime" id="departureTime" type="hidden"
                                                 required="required" value="${toDate}"/>
@@ -118,7 +118,7 @@
 
                             <div class="grid center-div">
                                 <button type="submit" value="Submit"
-                                        class="btn-primary material-red waves-button waves-light"
+                                        class="btn btn-primary waves-button waves-light light-blue"
                                         style="width: 240px;">BOOK
                                 </button>
                             </div>

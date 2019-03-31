@@ -6,8 +6,8 @@
 <section>
     <div id="services" class="container">
 
-        <h1 class="h1-responsive" style="margin-bottom: 20px">Services
-            <small class="text-muted">provided</small>
+        <h1 class="h1-responsive" style="margin-bottom: 20px"> OUR SERVICES
+
         </h1>
         <hr>
 

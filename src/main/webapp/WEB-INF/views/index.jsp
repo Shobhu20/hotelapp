@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>HYATT</title>
+    <title>HOTEL APP</title>
 
     <jsp:include page="includes/head.jsp"/>
 
@@ -56,19 +56,7 @@
 
 <section>
     <div class="center-div-horizontal" style="margin-bottom: 30px; margin-top: 30px">
-        <div class="col-md-4">
-            <button id="services_button" type="button" onclick="window.location='#services'"
-                    class="waves-button col-lg-3"
-                    style="width: 200px; height: 50px; font-weight: 500">OUR SERVICES
-            </button>
-        </div>
-
-        <div class="col-md-4">
-            <button id="add3room_button" type="button" onclick="window.location='/booking'"
-                    class="btn-danger waves-button waves-light material-red"
-                    style="width: 200px; height: 50px; color: white; font-weight: 400">BOOK ROOM
-            </button>
-        </div>
+        <h3 style="font-weight: bold; font-family: Roboto">WELCOME TO THE EMERGING HOTEL</h3>
 
 
 

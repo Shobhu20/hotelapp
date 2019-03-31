@@ -9,6 +9,7 @@
     <title>Booking</title>
 
     <jsp:include page="includes/head.jsp"/>
+    <script type="text/javascript" src="<c:url value='/static/js/date-validator.js' />"></script>
 
     <script>
         function verifyPeople() {
@@ -28,7 +29,7 @@
 <jsp:include page="includes/header.jsp"/>
 <form:form action="/search-room" method="POST"
            class="form-horizontal">
-<div>
+<div style="margin-top: 30%">
     <h1 class="heading h1-responsive center-div light-blue white-text card-header">SEARCH ROOMS</h1>
 
     <div class="form-group card card-block">
@@ -43,7 +44,7 @@
                    placeholder="Enter to date"/>
         </p>
         <input class="btn btn-primary waves-button waves-light light-blue"
-               style="width: 240px; height: 40px" type="submit" value="Dikhao"/>
+               style="width: 240px; height: 40px" type="submit" onclick="return compareDate()" value="Show Rooms"/>
     </div>
 </div>
 </form:form>

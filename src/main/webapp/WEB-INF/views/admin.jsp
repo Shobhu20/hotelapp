@@ -285,7 +285,7 @@
                                                 <td class="table-actions">
                                                     <a href="<c:url value='/admin/room/delete-${room.id}' />"
                                                        onclick="return confirm('Are you sure you want to remove this room?')"
-                                                       class="btn material-red btn-sm table-actions-buttons">Del</a>
+                                                       class="btn material-red btn-sm table-actions-buttons">Delete</a>
                                                 </td>
                                             </tr>
 

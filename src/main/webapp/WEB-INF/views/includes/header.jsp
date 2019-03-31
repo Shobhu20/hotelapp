@@ -7,7 +7,7 @@
         <div class="container-fluid" style="">
             <div class="navbar-header">
                 <a class="navbar-brand" href="<c:url value="/" />" style="margin-top: -12px">
-                    <span class="light-blue-text" style="font-weight: 800;font-size: 38px">HYATT</span></a>
+                    <span  style="font-weight: 800;font-size: 38px; color: #2F2F2F">EMERGING HOTEL</span></a>
             </div>
 
             <div id="navigation">
@@ -20,10 +20,10 @@
                         <a class="nav-link waves-effect waves-light text-muted"
                            href="<c:url value="/rooms" />">ROOMS</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link waves-effect waves-light text-muted"
-                           href="/#services">SERVICES</a>
-                    </li>
+                    <%--<li class="nav-item">--%>
+                        <%--<a class="nav-link waves-effect waves-light text-muted"--%>
+                           <%--href="/#services">SERVICES</a>--%>
+                    <%--</li>--%>
 
                     <li class="nav-item">
                         <a class="nav-link waves-effect waves-light text-muted"
@@ -34,7 +34,7 @@
                         <li class="nav-item">
                             <a href="<c:url value="/admin" />">
                                 <button id="admin" type="button"
-                                        class="btn-danger waves-button waves-light material-red"
+                                        class="btn-danger waves-button waves-light light-blue"
                                         style="font-weight: 500; font-size: 15px;">ADMIN PANEL
                                 </button>
                             </a>
@@ -45,7 +45,7 @@
                         <li class="nav-item">
                             <a href="<c:url value="/manage" />">
                                 <button id="manager" type="button"
-                                        class="btn-danger waves-button waves-light material-red"
+                                        class="btn-danger waves-button waves-light light-blue"
                                         style="font-weight: 600; font-size: 15px;">MANAGE
                                 </button>
                             </a>
