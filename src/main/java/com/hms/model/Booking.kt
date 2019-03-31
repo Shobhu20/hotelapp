@@ -74,7 +74,6 @@ class Booking : Serializable {
     override fun hashCode(): Int {
         var result = id?.hashCode() ?: 0
         result = 31 * result + (user?.hashCode() ?: 0)
-        result = 31 * result + (room?.hashCode() ?: 0)
         result = 31 * result + (people ?: 0)
         result = 31 * result + (arrivalTime?.hashCode() ?: 0)
         result = 31 * result + (departureTime?.hashCode() ?: 0)

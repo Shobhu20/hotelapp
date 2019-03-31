@@ -31,7 +31,7 @@ public class RoomValidator implements Validator {
         }
         if (isHtmlSafe(room.getName())) {
             errors.rejectValue("name", "field.notallowed");
-        }
+        }/*
         if (isHtmlSafe(room.getBed().toString())) {
             errors.rejectValue("bed", "field.notallowed");
         }
@@ -40,6 +40,6 @@ public class RoomValidator implements Validator {
         }
         if (isHtmlSafe(room.getPrice().toString())) {
             errors.rejectValue("price", "field.notallowed");
-        }
+        }*/
     }
 }

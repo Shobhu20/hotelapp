@@ -3,9 +3,9 @@ package com.hms.model
 import java.io.Serializable
 
 enum class RoomTypeClass private constructor(roomTypeClass: String) : Serializable {
-    FAMILY("FAMILY"),
+    STANDARD("STANDARD"),
     DELUXE("DELUXE"),
-    EXECUTIVE("EXECUTIVE");
+    SUITE("SUITE");
 
     var roomTypeClass: String
         internal set

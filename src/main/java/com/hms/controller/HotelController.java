@@ -9,6 +9,7 @@ import com.hms.service.BookingService;
 import com.hms.service.RoomService;
 import com.hms.service.RoomTypeService;
 import com.hms.service.UserService;
+import org.apache.commons.lang.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.context.MessageSource;
@@ -33,6 +34,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 import static com.hms.helpers.Constant.ROOM_STATUS.VERIFIED;
 
@@ -74,8 +76,8 @@ public class HotelController {
      */
     @RequestMapping(value = "/rooms", method = RequestMethod.GET)
     public String rooms(ModelMap rtype) {
-        rtype.addAttribute("familybase", roomTypeService.findById(Constant.ROOM_TYPE_VALUE.FAMILY).getBasePrice());
-        rtype.addAttribute("executivebase", roomTypeService.findById(Constant.ROOM_TYPE_VALUE.EXECUTIVE).getBasePrice());
+        rtype.addAttribute("familybase", roomTypeService.findById(Constant.ROOM_TYPE_VALUE.STANDARD).getBasePrice());
+        rtype.addAttribute("executivebase", roomTypeService.findById(Constant.ROOM_TYPE_VALUE.SUITE).getBasePrice());
         rtype.addAttribute("deluxebase", roomTypeService.findById(Constant.ROOM_TYPE_VALUE.DELUXE).getBasePrice());
         return  "rooms";
     }
@@ -127,6 +129,10 @@ public class HotelController {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         model.addAttribute("toDate", sdf.format(todate));
         model.addAttribute("fromDate", sdf.format(fromdate));
+        long diff = todate.getTime() - fromdate.getTime();
+        long days = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+        model.addAttribute("numOfDays", days);
+
         addBookingAttributes(model, freeRooms);
         return "booking";
     }
@@ -322,7 +328,6 @@ public class HotelController {
     public String updateRoomPrice(@PathVariable Integer id, @RequestParam("price") Integer roomPrice,
                                   RedirectAttributes redirectAttributes) {
         Room room = roomService.findById(id);
-        room.setPrice(roomPrice);
         room.setStatus(VERIFIED);
         roomService.updateRoom(room);
         redirectAttributes.addFlashAttribute("success", "Room " + id + " has been updated and verified.");

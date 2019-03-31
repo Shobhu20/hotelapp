@@ -18,28 +18,9 @@ class Room : Serializable {
     @Column(name = "NAME", nullable = false, unique = true)
     var name: String? = null
 
-    @NotNull
-    @Column(name = "PRICE", nullable = false)
-    var price: Int? = null
-
-    @Column(name = "CAPACITY", nullable = false)
-    var capacity: Int? = null
-    @NotNull
 
     @Column(name = "DESCRIPTION", nullable = true)
     var description: String? = null
-
-    @NotNull
-    @Column(name = "BATH", nullable = false)
-    var bath: Boolean? = null
-
-    @NotNull
-    @Column(name = "BED", nullable = false)
-    var bed: Int? = null
-
-    @NotNull
-    @Column(name = "INTERNET", nullable = false)
-    var internet: Boolean? = null
 
     @Column(name = "STATUS")
     var status: String? = null
@@ -51,6 +32,13 @@ class Room : Serializable {
     @OneToOne(mappedBy = "room", fetch = FetchType.EAGER)
     var booking: Booking? = null
 
+
+    override fun toString(): String {
+        return "Room [id=" + id + ", name=" + name +
+                ", description=" + description +
+                 ", type=" + type +
+                ", status=" + status + "]"
+    }
 
     override fun equals(other: Any?): Boolean {
         if (this === other)
@@ -73,23 +61,10 @@ class Room : Serializable {
         return true
     }
 
-    override fun toString(): String {
-        return "Room [id=" + id + ", name=" + name +
-                ", price=" + price + ", capacity=" + capacity +
-                ", description=" + description + ", bath=" + bath +
-                ", bed=" + bed + ", internet=" + internet + ", type=" + type +
-                ", status=" + status + "]"
-    }
-
     override fun hashCode(): Int {
         var result = (id ?: 0).toInt()
         result = 31 * result + (name?.hashCode() ?: 0)
-        result = 31 * result + (price ?: 0)
-        result = 31 * result + (capacity ?: 0)
         result = 31 * result + (description?.hashCode() ?: 0)
-        result = 31 * result + (bath?.hashCode() ?: 0)
-        result = 31 * result + (bed ?: 0)
-        result = 31 * result + (internet?.hashCode() ?: 0)
         result = 31 * result + (status?.hashCode() ?: 0)
         result = 31 * result + (type?.hashCode() ?: 0)
         result = 31 * result + (booking?.hashCode() ?: 0)

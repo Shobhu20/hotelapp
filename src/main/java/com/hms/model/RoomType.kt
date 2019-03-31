@@ -21,17 +21,22 @@ class RoomType : Serializable {
     var basePrice: Int? = null
 
     @Column(name = "TYPE", length = 15, unique = true, nullable = false)
-    var type: String? = RoomTypeClass.FAMILY.roomTypeClass
+    var type: String? = RoomTypeClass.STANDARD.roomTypeClass
+
+    @NotNull
+    @Column(name = "BED", nullable = false)
+    var bed: Int? = null
+
+    @Column(name = "CAPACITY", nullable = false)
+    var capacity: Int? = null
+    @NotNull
 
     @OneToMany(mappedBy = "type")
     var rooms: Set<Room> = HashSet()
 
-    override fun hashCode(): Int {
-        val prime = 31
-        var result = 1
-        result = prime * result + if (id == null) 0 else id!!.hashCode()
-        result = prime * result + if (type == null) 0 else type!!.hashCode()
-        return result
+
+    override fun toString(): String {
+        return "RoomType(id=$id, basePrice=$basePrice, type=$type, bed=$bed, capacity=$capacity)"
     }
 
     override fun equals(other: Any?): Boolean {
@@ -55,8 +60,14 @@ class RoomType : Serializable {
         return true
     }
 
-    override fun toString(): String {
-        return "RoomType [id=$id, basePrice=$basePrice, type=$type]"
+
+    override fun hashCode(): Int {
+        val prime = 31
+        var result = 1
+        result = prime * result + if (id == null) 0 else id!!.hashCode()
+        result = prime * result + if (type == null) 0 else type!!.hashCode()
+        return result
     }
+
 
 }

@@ -264,11 +264,7 @@
                                         <th>Name</th>
                                         <th>Class</th>
                                         <th>Price</th>
-                                        <th>Capacity</th>
                                         <th>More</th>
-                                        <th>Beds</th>
-                                        <th>Bath</th>
-                                        <th>Internet</th>
                                         <th>Actions</th>
                                     </tr>
                                     </thead>
@@ -279,21 +275,14 @@
                                                 <td>${room.id}</td>
                                                 <td>${room.name}</td>
                                                 <td>${room.type.type}</td>
-                                                <td>$${room.price}</td>
-                                                <td>${room.capacity}</td>
+                                                <td>$${room.type.basePrice}</td>
                                                 <td>
                                                     <button type="button"
                                                             class="btn grey btn-sm table-actions-buttons"
                                                             data-toggle="modal" data-target="#${room.id}">View
                                                     </button>
                                                 </td>
-                                                <td>${room.bed}</td>
-                                                <td>${room.bath}</td>
-                                                <td>${room.internet}</td>
                                                 <td class="table-actions">
-                                                    <a href="<c:url value='/admin/room/edit-${room.id}' />"
-                                                       class="btn light-blue btn-sm table-actions-buttons">Edit</a>
-
                                                     <a href="<c:url value='/admin/room/delete-${room.id}' />"
                                                        onclick="return confirm('Are you sure you want to remove this room?')"
                                                        class="btn material-red btn-sm table-actions-buttons">Del</a>
@@ -328,17 +317,13 @@
                                                 <td>${room.id}</td>
                                                 <td>${room.name}</td>
                                                 <td>${room.type.type}</td>
-                                                <td>$${room.price}</td>
-                                                <td>${room.capacity}</td>
+                                                <td>$${room.type.basePrice}</td>
                                                 <td>
                                                     <button type="button"
                                                             class="btn grey btn-sm table-actions-buttons"
                                                             data-toggle="modal" data-target="#${room.id}a">View
                                                     </button>
                                                 </td>
-                                                <td>${room.bed}</td>
-                                                <td>${room.bath}</td>
-                                                <td>${room.internet}</td>
                                                 <td class="table-actions">
                                                     <button data-toggle="modal" data-target="#${room.id}p"
                                                             class="btn light-blue btn-sm table-actions-buttons">Change
@@ -366,7 +351,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="modal hide fade" id="${room.id}p" tabindex="-1"
+                                         <%--   <div class="modal hide fade" id="${room.id}p" tabindex="-1"
                                                  role="dialog" aria-labelledby="company-about-label"
                                                  aria-hidden="true" style="display: none; height: 400px">
                                                 <div class="modal-dialog modal-sm">
@@ -383,7 +368,7 @@
                                                         <div class="modal-body">
                                                             <form class="form" action="/manage/rooms/edit-${room.id}"
                                                                   method="post" style="margin-top: -200px">
-                                                                <div class="form-group">
+                     &lt;%&ndash;                                           <div class="form-group">
                                                                     <div>
                                                                         <label for="price">Price</label>
                                                                         <input type="number" onchange="verifyPrice()"
@@ -391,7 +376,7 @@
                                                                                value="${room.price}"
                                                                                required="required"/>
                                                                     </div>
-                                                                </div>
+                                                                </div>&ndash;%&gt;
                                                                 <input type="hidden" name="${_csrf.parameterName}"
                                                                        value="${_csrf.token}"/>
                                                                 <div class="form-group">
@@ -406,7 +391,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>--%>
                                         </c:forEach>
                                     </sec:authorize>
                                     </tbody>
@@ -448,17 +433,13 @@
                                                 <td>${room.id}</td>
                                                 <td>${room.name}</td>
                                                 <td>${room.type.type}</td>
-                                                <td>$${room.price}</td>
-                                                <td>${room.capacity}</td>
+                                                <td>$${room.type.basePrice}</td>
                                                 <td>
                                                     <button type="button"
                                                             class="btn grey btn-sm table-actions-buttons"
                                                             data-toggle="modal" data-target="#${room.id}uv">View
                                                     </button>
                                                 </td>
-                                                <td>${room.bed}</td>
-                                                <td>${room.bath}</td>
-                                                <td>${room.internet}</td>
                                                 <td class="table-actions">
                                                     <a href="<c:url value='/manage/rooms/verify-${room.id}' />"
                                                        onclick="return confirm('Are you sure you want to verify this room?')"
@@ -508,13 +489,13 @@
                                                             <form class="form" action="/manage/rooms/edit-${room.id}"
                                                                   method="post" style="margin-top: -200px">
                                                                 <div class="form-group">
-                                                                    <div>
+                                           <%--                         <div>
                                                                         <label for="price">Price</label>
                                                                         <input type="number" onchange="verifyPrice()"
                                                                                id="price" name="price"
                                                                                value="${room.price}"
                                                                                required="required"/>
-                                                                    </div>
+                                                                    </div>--%>
                                                                 </div>
                                                                 <input type="hidden" name="${_csrf.parameterName}"
                                                                        value="${_csrf.token}"/>

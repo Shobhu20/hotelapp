@@ -13,15 +13,15 @@ public class Constant {
     }
 
     public static class ROOM_TYPE {
-        public static String FAMILY = "FAMILY";
+        public static String STANDARD = "STANDARD";
         public static String DELUXE = "DELUXE";
-        public static String EXECUTIVE = "EXECUTIVE";
+        public static String SUITE = "SUITE";
     }
 
     public static class ROOM_TYPE_VALUE {
-        public static Integer FAMILY = 1;
+        public static Integer STANDARD = 1;
         public static Integer DELUXE = 2;
-        public static Integer EXECUTIVE = 3;
+        public static Integer SUITE = 3;
     }
 
     public static class USER_ROLE {

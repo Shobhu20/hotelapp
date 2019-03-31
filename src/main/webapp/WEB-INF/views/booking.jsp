@@ -71,9 +71,10 @@
                                 <div>
                                     <form:select id="room" required="required" path="room"
                                                  cssClass="input-block-level rgba-white-slight waves-input-wrapper"
-                                                 items="${rooms}"
-                                                 itemValue="id"
-                                                 itemLabel="name">
+                                                 >
+                                        <c:forEach var="item" items="${rooms}">
+                                            <form:option value="${item.id}" label="${item.type.type} : ${Math.round(item.type.basePrice * numOfDays * 1.13)} $ (includes hst) "></form:option>
+                                        </c:forEach>
                                     </form:select>
                                     <div class="has-error">
                                         <form:errors path="room" class="help-inline material-red-text "/>
@@ -98,6 +99,11 @@
                                 </div>
                                 <div class="has-error">
                                     <form:errors path="departureTime" class="help-inline material-red-text "/>
+                                </div>
+                                <br/>
+                                <div>
+                                    <label>Total Number of Days</label>
+                                    <p>${numOfDays}</p>
                                 </div>
                                 </br>
                                 <p class="info-text">Comments</p>

@@ -219,10 +219,6 @@ public class AdminController {
             FieldError nameError = new FieldError("room", "name", messageSource.getMessage("non.unique.room", new String[]{room.getName()}, Locale.getDefault()));
             result.addError(nameError);
             return "adminAddRoom";
-        } else if (room.getPrice() < room.getType().getBasePrice()) {
-            FieldError priceError = new FieldError("room", "price", messageSource.getMessage("conflict.room_price", new String[]{room.getType().getType()}, Locale.getDefault()));
-            result.addError(priceError);
-            return "adminAddRoom";
         }
 
         room.setStatus(Constant.ROOM_STATUS.UNVERIFIED);
@@ -245,11 +241,9 @@ public class AdminController {
 
     @RequestMapping(value = "/admin/room/edit-{id}", method = RequestMethod.GET)
     public String editRoom(@PathVariable Integer id, ModelMap model) {
-
-        if (roomService.findById(id) == null)
-            return "redirect:/admin";
-
         Room room = roomService.findById(id);
+        if (room == null)
+            return "redirect:/admin";
         model.addAttribute("room", room);
         model.addAttribute("edit", true);
         return "editRoom";
@@ -273,25 +267,29 @@ public class AdminController {
             FieldError nameError = new FieldError("room", "name", messageSource.getMessage("non.unique.room", new String[]{room.getName()}, Locale.getDefault()));
             result.addError(nameError);
             return "editRoom";
-        } else if (room.getPrice() < room.getType().getBasePrice()) {
+        } /*else if (room.getPrice() < room.getType().getBasePrice()) {
             FieldError priceError = new FieldError("room", "price", messageSource.getMessage("conflict.room_price", new String[]{room.getType().getType()}, Locale.getDefault()));
             result.addError(priceError);
             return "editRoom";
-        }
+        }*/
 
         Room r = roomService.findById(id);
-        if (!(r.getPrice().equals(room.getPrice()))) {
+/*        if (!(r.getPrice().equals(room.getPrice()))) {
             r.setStatus(Constant.ROOM_STATUS.UNVERIFIED);
             r.setPrice(room.getPrice());
-        }
+        }*/
         r.setType(room.getType());
+/*
         r.setBath(room.getBath());
+*/
         r.setBooking(room.getBooking());
-        r.setBed(room.getBed());
+        /*r.setBed(room.getBed());*/
+/*
         r.setCapacity(room.getCapacity());
+*/
         r.setDescription(room.getDescription());
         r.setName(room.getName());
-
+        roomService.updateRoom(r);
         redirectAttrs.addFlashAttribute("success", "Room " + room.getName() + " was updated successfully");
         return "redirect:/admin";
     }

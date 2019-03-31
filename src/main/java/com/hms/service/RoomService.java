@@ -79,12 +79,12 @@ public class RoomService {
     }
 
     public List<Room> findFreeRooms(Integer min, Integer max, String type) {
-        if (type != null && type.toLowerCase().equals(Constant.ROOM_TYPE.FAMILY.toLowerCase())) {
-            return dao.findFreeRooms(min, max, Constant.ROOM_TYPE_VALUE.FAMILY, Constant.ROOM_STATUS.VERIFIED);
+        if (type != null && type.toLowerCase().equals(Constant.ROOM_TYPE.STANDARD.toLowerCase())) {
+            return dao.findFreeRooms(min, max, Constant.ROOM_TYPE_VALUE.STANDARD, Constant.ROOM_STATUS.VERIFIED);
         } else if (type != null && type.toLowerCase().equals(Constant.ROOM_TYPE.DELUXE.toLowerCase())) {
             return dao.findFreeRooms(min, max, Constant.ROOM_TYPE_VALUE.DELUXE, Constant.ROOM_STATUS.VERIFIED);
-        } else if (type != null && type.toLowerCase().equals(Constant.ROOM_TYPE.EXECUTIVE.toLowerCase())) {
-            return dao.findFreeRooms(min, max, Constant.ROOM_TYPE_VALUE.EXECUTIVE, Constant.ROOM_STATUS.VERIFIED);
+        } else if (type != null && type.toLowerCase().equals(Constant.ROOM_TYPE.SUITE.toLowerCase())) {
+            return dao.findFreeRooms(min, max, Constant.ROOM_TYPE_VALUE.SUITE, Constant.ROOM_STATUS.VERIFIED);
         }
         return dao.findFreeRooms(min, max, Constant.ROOM_STATUS.VERIFIED);
     }
