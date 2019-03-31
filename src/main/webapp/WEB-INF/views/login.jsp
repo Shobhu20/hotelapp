@@ -59,10 +59,6 @@
         </div>
     </form>
 
-    <form action="/auth/facebook" method="POST" style="position: absolute; margin-top: 27%; margin-left: 15%">
-        <button type="submit">Sign in with Facebook</button>
-        <input type="hidden" name="scope" value="email,public_profile,user_birthday"/>
-    </form>
 </section>
 </body>
 </html>
