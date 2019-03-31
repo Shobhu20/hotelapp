@@ -73,41 +73,14 @@ public class HotelController {
      * @link /rooms
      */
     @RequestMapping(value = "/rooms", method = RequestMethod.GET)
-    public String rooms(ModelMap model) {
-        List<Room> rooms = roomService.findByStatus(VERIFIED);
-        model.addAttribute("rooms", rooms);
-        model.addAttribute("search", false);
-        return "rooms";
+    public String rooms(ModelMap rtype) {
+        rtype.addAttribute("familybase", roomTypeService.findById(Constant.ROOM_TYPE_VALUE.FAMILY).getBasePrice());
+        rtype.addAttribute("executivebase", roomTypeService.findById(Constant.ROOM_TYPE_VALUE.EXECUTIVE).getBasePrice());
+        rtype.addAttribute("deluxebase", roomTypeService.findById(Constant.ROOM_TYPE_VALUE.DELUXE).getBasePrice());
+        return  "rooms";
     }
 
-    @RequestMapping(value = "/rooms/search", method = RequestMethod.POST)
-    public String searchRooms(@RequestParam("searchtext") String text, ModelMap model) {
-        List<Room> rooms;
 
-        // Modifying request to include search results
-        if (text.toLowerCase().contains("fam".toLowerCase())
-                || text.toLowerCase().contains(Constant.ROOM_TYPE.FAMILY.toLowerCase()))
-            rooms = roomService.findByTypeId(Constant.ROOM_TYPE_VALUE.FAMILY);
-        else if (text.toLowerCase().contains("del".toLowerCase())
-                || text.toLowerCase().contains(Constant.ROOM_TYPE.DELUXE.toLowerCase()))
-            rooms = roomService.findByTypeId(Constant.ROOM_TYPE_VALUE.DELUXE);
-        else if (text.toLowerCase().contains("exe".toLowerCase())
-                || text.toLowerCase().contains(Constant.ROOM_TYPE.EXECUTIVE.toLowerCase()))
-            rooms = roomService.findByTypeId(Constant.ROOM_TYPE_VALUE.EXECUTIVE);
-        else if (text.toLowerCase().contains("free".toLowerCase())
-                || text.toLowerCase().contains("avail".toLowerCase())
-                || text.toLowerCase().contains("free rooms".toLowerCase())
-                || text.toLowerCase().contains("available".toLowerCase()))
-            rooms = roomService.findFreeRooms();
-        else if (text.toLowerCase().contains("all".toLowerCase())
-                || text.toLowerCase().contains("all rooms".toLowerCase()))
-            rooms = roomService.findByStatus(VERIFIED);
-        else rooms = roomService.searchByName(text);
-        model.addAttribute("rooms", rooms);
-        model.addAttribute("searchtext", text);
-        model.addAttribute("search", true);
-        return "rooms";
-    }
 
 
     /**

@@ -70,133 +70,14 @@
             </button>
         </div>
 
-        <form action="/rooms/search" method="post" class="col-md-4">
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-            <button id="searchtext" name="searchtext" type="submit" value="Available" class="waves-button"
-                    style="width: 200px; height: 50px; font-weight: 500">AVAILABLE ROOMS
-            </button>
-        </form>
+
 
     </div>
     <hr class="container">
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-    <html>
-    <body>
-    <div id="room_types" class="container">
-        <h1 class="h1-responsive" style="margin-bottom: 20px">Room Types
-            <small class="text-muted">Pricing</small>
-        </h1>
-        <hr>
 
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="view overlay hm-white-slight">
-                        <img src="https://res.cloudinary.com/hte2zx5qx/image/upload/room1.jpg" class="img-fluid" alt="">
-                    </div>
 
-                    <div class="card-block">
-                        <h4 class="card-title">Family Rooms</h4>
-
-                        <p class="card-text">Room perfect for family vacations which includes entertainment facilities
-                            like plasma TV, C.D, Stereo and DVD. These rooms provides all necessities for family.</p>
-
-                        <div class="read-more">
-                            <table>
-                                <tr>
-                                    <form action="/rooms/search" method="post" class="btn btn-primary">
-                                        <td><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                                            <button id="searchtext" name="searchtext" type="submit" value="Family"
-                                                    class="btn btn-primary waves-button waves-light">Available Rooms
-                                            </button>
-                                        </td>
-                                    </form>
-                                </tr>
-                            </table>
-
-                            <span class="text-lg-left" style="float: right; margin-top: -50px">
-                                <p id="display_room1_price"
-                                   style="font-size: 30px; color: dodgerblue">$${familybase} +</p>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="view overlay hm-white-slight">
-                        <img src="https://res.cloudinary.com/hte2zx5qx/image/upload/room2.jpg" class="img-fluid" alt="">
-                    </div>
-
-                    <div class="card-block">
-                        <h4 class="card-title">Deluxe Rooms</h4>
-
-                        <p class="card-text">Hotel provides the entire world class premium services like plasma TV, C.D,
-                            Stereo & DVD,work desks, phone and much more.</p>
-
-                        <div class="read-more">
-                            <table>
-                                <tr>
-                                    <form action="/rooms/search" method="post" class="btn btn-primary">
-                                        <td><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                                            <button id="searchtext" name="searchtext" type="submit" value="Deluxe"
-                                                    class="btn btn-primary waves-button waves-light">Available Rooms
-                                            </button>
-                                        </td>
-                                    </form>
-                                </tr>
-                            </table>
-
-                            <span class="text-lg-left" style="float: right; margin-top: -50px">
-                                <p id="display_room2_price"
-                                   style="font-size: 30px; color: dodgerblue">$${deluxebase} +</p>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="view overlay hm-white-slight">
-                        <img src="https://res.cloudinary.com/hte2zx5qx/image/upload/room3.jpg" class="img-fluid" alt="">
-                    </div>
-
-                    <div class="card-block">
-                        <h4 class="card-title">Executive Rooms</h4>
-
-                        <p class="card-text"> This include a range of luxurious rooms suitable for
-                            its discerning visitors. The different kinds of rooms and suits include the Business suits
-                            and Crown Suits.</p>
-
-                        <div class="read-more">
-                            <table>
-                                <tr>
-                                    <form action="/rooms/search" method="post" class="btn btn-primary">
-                                        <td><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                                            <button id="searchtext" name="searchtext" type="submit" value="Executive"
-                                                    class="btn btn-primary waves-button waves-light">Available Rooms
-                                            </button>
-                                        </td>
-                                    </form>
-                                </tr>
-                            </table>
-
-                            <span class="text-lg-left" style="float: right; margin-top: -50px">
-                                <p id="display_room3_price" style="font-size: 30px; color: dodgerblue">$${executivebase} +</p>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </body>
-    </html>
-
-    <hr class="container">
     <jsp:include page="services.jsp"/>
 
 </section>

@@ -62,9 +62,6 @@ public class AppController {
      */
     @RequestMapping(value = {"/", "/home"})
     public String home(ModelMap model) {
-        model.addAttribute("familybase", roomTypeService.findById(Constant.ROOM_TYPE_VALUE.FAMILY).getBasePrice());
-        model.addAttribute("executivebase", roomTypeService.findById(Constant.ROOM_TYPE_VALUE.EXECUTIVE).getBasePrice());
-        model.addAttribute("deluxebase", roomTypeService.findById(Constant.ROOM_TYPE_VALUE.DELUXE).getBasePrice());
         return "index";
     }
 

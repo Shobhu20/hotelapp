@@ -278,6 +278,10 @@ textarea {
   .navbar {
     display: none;
   }
+
+  .padding{
+    padding-bottom: 2rem;
+  }
   .btn > .caret,
   .dropup > .btn > .caret {
     border-top-color: #000 !important;
@@ -4002,6 +4006,7 @@ input[type="button"].btn-block {
   border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
 }
+
 
 .card-header {
   padding: 0.75rem 1.25rem;

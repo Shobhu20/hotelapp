@@ -24,10 +24,6 @@
                         <a class="nav-link waves-effect waves-light text-muted"
                            href="/#services">SERVICES</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link waves-effect waves-light text-muted"
-                           href="<c:url value="/about" />">ABOUT</a>
-                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link waves-effect waves-light text-muted"
