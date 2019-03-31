@@ -134,14 +134,21 @@ function checkFields() {
     }
 }
 
+
+
 function usernameChecker() {
-    if (validateEmail(document.getElementById('username').value)) {
-        checkEmailAvailability();
+    var userName = document.getElementById('username').value.match(/^[a-zA-Z0-9]+$/);
+    if (userName == null) {
+        document.getElementById("username").style.borderColor = 'red';
+        document.getElementById("username").style.red = 'red';
+        document.getElementById("username").value = null;
+
     }
     else {
-        document.getElementById("username").style.borderColor = 'red';
-        document.getElementById("username").style.color = 'red';
-        document.getElementById("username").value = null;
+        checkUsernameAvailability()
+        document.getElementById("username").style.borderColor = 'green';
+        document.getElementById("username").style.color = 'green';
+
     }
 }
 

@@ -28,7 +28,7 @@
                     <%--</li>--%>
                     <li class="nav-item">
                         <a class="nav-link waves-effect waves-light white-text"
-                           href="<c:url value="/about" />">ABOUT</a>
+                           href="<c:url value="/about" />">ABOUT US</a>
                     </li>
 
 

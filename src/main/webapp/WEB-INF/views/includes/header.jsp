@@ -24,11 +24,15 @@
                         <%--<a class="nav-link waves-effect waves-light text-muted"--%>
                            <%--href="/#services">SERVICES</a>--%>
                     <%--</li>--%>
-
                     <li class="nav-item">
                         <a class="nav-link waves-effect waves-light text-muted"
-                           href="<c:url value="/privacy" />">PRIVACY</a>
+                           href="<c:url value="/about" />">ABOUT US</a>
                     </li>
+
+                    <%--<li class="nav-item">--%>
+                        <%--<a class="nav-link waves-effect waves-light text-muted"--%>
+                           <%--href="<c:url value="/privacy" />">PRIVACY</a>--%>
+                    <%--</li>--%>
 
                     <sec:authorize access="hasRole('ADMIN')">
                         <li class="nav-item">
