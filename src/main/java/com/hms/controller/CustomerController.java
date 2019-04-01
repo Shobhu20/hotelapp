@@ -102,19 +102,7 @@ public class CustomerController {
         return "success";
     }
 
-    @RequestMapping(value = "/user/profile-{email}/resend")
-    public String resendConfirmationMail(@PathVariable("email") String username, ModelMap model) {
-        if (isCurrentAuthenticationAnonymous()) {
-            return "redirect:/login";
-        }
 
-        User user = getCurrentUser();
-        if (user.getEmail().equals(username)) {
-            user.setToken(UUID.randomUUID().toString());
-            userService.updateUser(user);
-        }
-        return "redirect:/";
-    }
 
     /**
      * Validates the user
@@ -131,21 +119,7 @@ public class CustomerController {
         }
 
         User user = getCurrentUser();
-        if (user.getUsername().equals(email)) {
-            if (user.getToken().equals(token)) {
-                user.setToken(null);
-                com.hms.model.UserProfile role = userProfileService.findById(Constant.USER_ROLE.VERIFIED);
-                Set<com.hms.model.UserProfile> userProfile = new HashSet<>();
-                userProfile.add(role);
-                user.setUserProfiles(userProfile);
-                userService.updateUser(user);
-                updateCurrentUser(user);
-            } else {
-                redirectAttributes.addFlashAttribute("success", "Confirmation expired. Kindly resend confirmation email");
-            }
-        } else {
-            redirectAttributes.addFlashAttribute("success", "Kindly login with same account to confirm.");
-        }
+        redirectAttributes.addFlashAttribute("success", "Kindly login with same account to confirm.");
         return "redirect:/user/profile";
     }
 

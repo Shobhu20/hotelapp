@@ -27,12 +27,12 @@ class Booking : Serializable {
     @Column(name = "PEOPLE", nullable = false)
     var people: Int? = null
 
-    @Column(name = "ARRIVAL_TIME", nullable = false)
+    @Column(name = "FROM_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "MM/dd/yyyy")
     var arrivalTime: Date? = null
 
-    @Column(name = "DEPARTURE_TIME", nullable = false)
+    @Column(name = "TO_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "MM/dd/yyyy")
     var departureTime: Date? = null
@@ -42,9 +42,6 @@ class Booking : Serializable {
 
     @Column(name = "STATUS", nullable = false)
     var status: String? = null
-
-    @Column(name = "ROOM_BOOKED")
-    var roomBooked: String? = null
 
     override fun equals(other: Any?): Boolean {
         if (this === other)
@@ -68,7 +65,7 @@ class Booking : Serializable {
     override fun toString(): String {
         return "Booking [id=" + id + ", user=" + user + ", room=" + room + ", people=" + people +
                 ", arrivalTime=" + arrivalTime + ", departureTime=" + departureTime + ", comment=" + comment +
-                ", status=" + status + ", roomBooked=" + roomBooked + "]"
+                ", status=" + status + "]"
     }
 
     override fun hashCode(): Int {
@@ -79,7 +76,6 @@ class Booking : Serializable {
         result = 31 * result + (departureTime?.hashCode() ?: 0)
         result = 31 * result + (comment?.hashCode() ?: 0)
         result = 31 * result + (status?.hashCode() ?: 0)
-        result = 31 * result + (roomBooked?.hashCode() ?: 0)
         return result
     }
 }

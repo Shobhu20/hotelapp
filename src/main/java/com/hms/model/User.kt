@@ -18,6 +18,9 @@ class User : Serializable {
     @Column(name = "USERNAME", unique = true, nullable = false)
     var username: String? = null
 
+    @Column(name = "NATIONALITY", nullable = false)
+    var nationality: String? = null
+
     @Column(name = "PASSWORD", nullable = false)
     var password: String? = null
 
@@ -29,9 +32,6 @@ class User : Serializable {
 
     @Column(name = "EMAIL", unique = true, nullable = false)
     var email: String? = null
-
-    @Column(name = "TOKEN")
-    var token: String? = null
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "APP_USER_USER_PROFILE", joinColumns = [(JoinColumn(name = "USER_ID"))], inverseJoinColumns = [(JoinColumn(name = "USER_PROFILE_ID"))])
@@ -82,7 +82,7 @@ class User : Serializable {
     override fun toString(): String {
         return ("User [id=" + id + ", username=" + username + ", password=" + password
                 + ", firstName=" + firstName + ", lastName=" + lastName
-                + ", email=" + email + "]")
+                + ", email=" + email +  ", nationality="+ nationality +"]")
     }
 
 }

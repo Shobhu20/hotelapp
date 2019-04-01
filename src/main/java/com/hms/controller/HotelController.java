@@ -382,7 +382,6 @@ public class HotelController {
             return "redirect:/manage";
         }
 
-        booking.setRoomBooked(booking.getRoom().getName());
         booking.setStatus(Constant.BOOKING_STATUS.COMPLETED);
         booking.setRoom(null);
         bookingService.updateBooking(booking);

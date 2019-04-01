@@ -15,17 +15,17 @@ VALUES ('UNVERIFIED');
 
 
 /* Populate one Admin User which will further create other users for the application using GUI */
-INSERT INTO APP_USER (username, password, first_name, last_name, email, token)
+INSERT INTO APP_USER (username, password, first_name, last_name, email, nationality )
 VALUES
-  ('admin', '$2a$10$4eqIF5s/ewJwHK1p8lqlFOEm2QIA0S8g6./Lok.pQxqcxaBZYChRm', 'Test', 'Admin', 'admin@hyatt.com', '');
-INSERT INTO APP_USER (username, password, first_name, last_name, email, token)
+  ('admin', '$2a$10$4eqIF5s/ewJwHK1p8lqlFOEm2QIA0S8g6./Lok.pQxqcxaBZYChRm', 'Test', 'Admin', 'admin@hyatt.com', 'Canada');
+INSERT INTO APP_USER (username, password, first_name, last_name, email, nationality)
 VALUES
   ('manager', '$2a$10$4eqIF5s/ewJwHK1p8lqlFOEm2QIA0S8g6./Lok.pQxqcxaBZYChRm', 'Test', 'Manager', 'manager@hyatt.com',
-   '');
-INSERT INTO APP_USER (username, password, first_name, last_name, email, token)
+   'India');
+INSERT INTO APP_USER (username, password, first_name, last_name, email, nationality)
 VALUES
   ('customer', '$2a$10$4eqIF5s/ewJwHK1p8lqlFOEm2QIA0S8g6./Lok.pQxqcxaBZYChRm', 'Test', 'Customer', 'customer@test.com',
-   '');
+   'Canada');
 
 
 /* Populate JOIN Table */
