@@ -11,10 +11,10 @@
     </parent>
 
     <groupId>com.hms</groupId>
-    <artifactId>Hyatt</artifactId>
+    <artifactId>Emerging</artifactId>
     <packaging>war</packaging>
     <version>1.0.0</version>
-    <name>Hyatt</name>
+    <name>Emerging</name>
 
     <properties>
         <springsecurity.version>5.0.3.RELEASE</springsecurity.version>
@@ -288,7 +288,7 @@
                 </executions>
             </plugin>
         </plugins>
-        <finalName>Hyatt</finalName>
+        <finalName>Emerging</finalName>
     </build>
 
     <repositories>
