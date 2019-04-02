@@ -27,19 +27,19 @@
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item">
             <div id="display_image1" class="flex-center animated">
-                <img src="https://res.cloudinary.com/hte2zx5qx/image/upload/display1.jpg">
+                <img src="https://cdn.hotelplanner.com/Common/Images/_HotelPlanner/Home-Page/fade/sld6.jpg">
             </div>
         </div>
 
         <div class="carousel-item">
             <div id="display_image2" class="flex-center animated">
-                <img src="https://res.cloudinary.com/hte2zx5qx/image/upload/display2.jpg">
+                <img src="https://www.rwsentosa.com/-/media/project/non-gaming/rwsentosa/hotels/hard-rock-hotel-singapore/hardrockhotelsg-exterior.jpg">
             </div>
         </div>
 
         <div class="carousel-item active">
             <div id="display_image3" class="flex-center animated">
-                <img src="https://res.cloudinary.com/hte2zx5qx/image/upload/display3.jpg">
+                <img src="https://media.cntraveller.in/wp-content/uploads/2017/04/india-destination-wedding-lead-866x487.jpg">
             </div>
         </div>
     </div>
