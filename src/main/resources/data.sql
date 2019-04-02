@@ -13,18 +13,18 @@ VALUES ('MANAGER');
 INSERT INTO USER_PROFILE (type)
 VALUES ('UNVERIFIED');
 
-
+/*password is admin for all*/
 /* Populate one Admin User which will further create other users for the application using GUI */
 INSERT INTO APP_USER (username, password, first_name, last_name, email, nationality )
 VALUES
-  ('admin', '$2a$10$4eqIF5s/ewJwHK1p8lqlFOEm2QIA0S8g6./Lok.pQxqcxaBZYChRm', 'Test', 'Admin', 'admin@hyatt.com', 'Canada');
+  ('admin', '$2a$10$U/j31XjS.vKJ1jUlgcrOoOaY7JXpVV8doQ1IQoPMIwluXMn5EA6tK', 'Test', 'Admin', 'admin@emerging.com', 'Canada');
 INSERT INTO APP_USER (username, password, first_name, last_name, email, nationality)
 VALUES
-  ('manager', '$2a$10$4eqIF5s/ewJwHK1p8lqlFOEm2QIA0S8g6./Lok.pQxqcxaBZYChRm', 'Test', 'Manager', 'manager@hyatt.com',
+  ('manager', '$2a$10$U/j31XjS.vKJ1jUlgcrOoOaY7JXpVV8doQ1IQoPMIwluXMn5EA6tK', 'Test', 'Manager', 'manager@emerging.com',
    'India');
 INSERT INTO APP_USER (username, password, first_name, last_name, email, nationality)
 VALUES
-  ('customer', '$2a$10$4eqIF5s/ewJwHK1p8lqlFOEm2QIA0S8g6./Lok.pQxqcxaBZYChRm', 'Test', 'Customer', 'customer@test.com',
+  ('customer', '$2a$10$U/j31XjS.vKJ1jUlgcrOoOaY7JXpVV8doQ1IQoPMIwluXMn5EA6tK', 'Test', 'Customer', 'customer@test.com',
    'Canada');
 
 

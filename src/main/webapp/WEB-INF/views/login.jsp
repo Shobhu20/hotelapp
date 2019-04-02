@@ -28,7 +28,7 @@
 
                 <p>
                     <label for="username" data-icon="u"> Email </label>
-                    <input id="username" onchange="usernameChecker()" name="username" required="required" type="email"
+                    <input id="username" onchange="emailChecker()" name="username" required="required" type="email"
                            placeholder="Enter email"/>
                 </p>
 

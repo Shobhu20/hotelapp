@@ -22,8 +22,8 @@ interface RoomRepository : JpaRepository<Room, Int> {
     @Query("SELECT m.* from Room AS m JOIN (SELECT DISTINCT d.* FROM Room AS d LEFT OUTER JOIN Booking AS c ON c.room_id = d.id WHERE (c.room_id IS NULL) ORDER BY d.name) AS t ON m.id = t.id WHERE m.status LIKE :check", nativeQuery = true)
     fun findFreeRooms(@Param("check") check: String): List<Room>
 
-    @Query("select * from room where not exists (SELECT DISTINCT d.* FROM Room AS d JOIN Booking AS c ON c.room_id = d.id  WHERE d.status LIKE :check AND (c.arrival_time<=:todate AND c.departure_time>=:todate) OR " +
-                    "(c.arrival_time<=:fromdate AND c.departure_time>=:fromdate));", nativeQuery = true)
+    @Query("select * from room where not exists (SELECT DISTINCT d.* FROM Room AS d JOIN Booking AS c ON c.room_id = d.id  WHERE d.status LIKE :check AND (c.from_date<=:todate AND c.to_date>=:todate) OR " +
+                    "(c.from_date<=:fromdate AND c.to_date>=:fromdate));", nativeQuery = true)
     fun findFreeRooms(@Param("todate") todate: Date,@Param("fromdate") fromdate: Date,@Param("check") check: String): List<Room>
 
     @Query("SELECT m.* from Room AS m JOIN (SELECT DISTINCT d.* FROM Room AS d LEFT OUTER JOIN Booking AS c ON c.room_id = d.id WHERE (c.room_id IS NULL) ORDER BY d.name) AS t ON m.id = t.id WHERE m.status LIKE :check and m.price >= :minimum and m.price <= :maximum", nativeQuery = true)

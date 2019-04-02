@@ -64,6 +64,16 @@
                     <form:errors path="email" class="help-inline material-red-text "/>
                     <span class="animated help-inline material-red-text " id="emailerror"></span>
                 </div>
+                <div>
+                    <label for="nationality" data-icon="e">Your Nationality</label>
+                    <form:input type="text" path="nationality" id="nationality"
+                                placeholder="Country you belong to"
+                                required="required"/>
+                </div>
+                <div class="has-error">
+                    <form:errors path="nationality" class="help-inline material-red-text "/>
+                    <span class="animated help-inline material-red-text " id="nationalityerror"></span>
+                </div>
                 </br>
                 <div>
                     <label for="password" data-icon="p">Your password </label>

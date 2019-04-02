@@ -127,6 +127,18 @@
                 </div>
 
                 <div class="form-group">
+                    <div class="col-xs-6">
+                        <label for="nationality"><h4>Nationality</h4></label>
+                        <form:input path="nationality" type="text" class="form-control" name="nationality" id="nationality"
+                                    placeholder="Country " />
+                        <div class="has-error">
+                            <form:errors path="nationality" class="help-inline material-red-text "/>
+                            <span class="animated help-inline material-red-text " id="nationalityerror"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <div class="col-xs-12">
                         <button class="btn btn-lg btn-primary light-blue white-text waves-button"
                                 style="width: 240px;"
