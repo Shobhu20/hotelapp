@@ -56,8 +56,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         for (UserProfile userProfile : user.getUserProfiles()) {
             logger.info("UserProfile : {}", userProfile);
 
-            // Defining role syntax to be used throughout app
-            // ROLE_ADMIN / ROLE_MANAGER / ROLE_USER / ROLE_UNVERIFIED ...
             authorities.add(new SimpleGrantedAuthority("ROLE_" + userProfile.getType()));
         }
         logger.info("authorities : {}", authorities);

@@ -45,16 +45,6 @@
                         </li>
                     </sec:authorize>
 
-                    <sec:authorize access="hasRole('MANAGER')">
-                        <li class="nav-item">
-                            <a href="<c:url value="/manage" />">
-                                <button id="manager" type="button"
-                                        class="btn-danger waves-button waves-light light-blue"
-                                        style="font-weight: 600; font-size: 15px;">MANAGE
-                                </button>
-                            </a>
-                        </li>
-                    </sec:authorize>
 
                     <sec:authorize access="isAnonymous()">
                         <li class="nav-item">

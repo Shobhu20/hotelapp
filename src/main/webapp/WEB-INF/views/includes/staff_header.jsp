@@ -9,14 +9,14 @@
                 <a class="navbar-brand" href="<c:url value="/" />" style="margin-top: -12px"><span
                          style="font-weight: 500;font-size: 40px; color: #ffffff">EMERGING HOTEL
                     <span style="font-weight: 100"><sec:authorize access="hasRole('ADMIN')">ADMIN PANEL</sec:authorize>
-                        <sec:authorize access="hasRole('MANAGER')">MANAGER PANEL</sec:authorize></span></span></a>
+                        </span></span></a>
             </div>
 
             <div id="navigation">
                 <ul class="nav navbar-nav" style="float: right;">
                     <li class="nav-item">
                         <a class="nav-link waves-effect waves-light white-text"
-                           href="<c:url value="/booking" />">BOOK ROOM</a>
+                           href="<c:url value="/search-room" />">BOOK ROOM</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link waves-effect waves-light white-text"

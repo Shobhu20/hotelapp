@@ -26,8 +26,6 @@ public class Constant {
 
     public static class USER_ROLE {
         public static Integer VERIFIED = 1;
-        public static Integer UNVERIFIED = 4;
         public static Integer ADMIN = 2;
-        public static Integer MANAGER = 3;
     }
 }

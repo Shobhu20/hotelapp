@@ -52,31 +52,6 @@
                     <form:errors path="description" class="help-inline material-red-text "/>
                 </div>
                 </br>
-<%--                <div>
-                    <label for="capacity" data-icon="e">Total beds</label>
-                    <form:input type="number" onchange="verifyBedCount()" path="bed" id="bed"
-                                required="required"/>
-                </div>
-                <div class="has-error">
-                    <form:errors path="capacity" class="help-inline material-red-text "/>
-                </div>--%>
-<%--                </br>
-                <div>
-                    <label for="bath" data-icon="p">&nbsp;&nbsp;&nbsp;Bath included</label>
-                    <form:checkbox cssClass="checkbox checkbox-inline" name="Bath included" path="bath"
-                                   id="bath" cssStyle="float: left; width: 15px"/>
-                </div>
-                <div class="has-error">
-                    <form:errors path="bath" class="help-inline material-red-text "/>
-                </div>--%>
-<%--                <div>
-                    <label for="internet" data-icon="p">&nbsp;&nbsp;&nbsp;Internet provided</label>
-                    <form:checkbox cssClass="checkbox checkbox-inline" name="Internet provided"
-                                   path="internet" id="internet" cssStyle="float: left; width: 15px"/>
-                </div>
-                <div class="has-error">
-                    <form:errors path="internet" class="help-inline material-red-text "/>
-                </div>--%>
                 </br>
                 <label for="type">Select Room Type</label>
 
@@ -91,15 +66,6 @@
                     </div>
                 </div>
                 </br>
-<%--                <div>
-                    <label for="price" data-icon="e">Price</label>
-                    <form:input type="number" onchange="verifyPrice()" path="price" id="price"
-                                required="required"/>
-                </div>
-                <div class="has-error">
-                    <form:errors path="price" class="help-inline material-red-text "/>
-                </div>
-                </br>--%>
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
                 </br>

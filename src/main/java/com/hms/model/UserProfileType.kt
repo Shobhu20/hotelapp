@@ -4,9 +4,7 @@ import java.io.Serializable
 
 enum class UserProfileType(userProfileType: String) : Serializable {
     USER("USER"),
-    ADMIN("ADMIN"),
-    MANAGER("MANAGER"),
-    UNVERIFIED("UNVERIFIED");
+    ADMIN("ADMIN");
 
     var userProfileType: String
         internal set

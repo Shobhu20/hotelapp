@@ -63,6 +63,16 @@
                     <form:errors path="email" class="help-inline material-red-text "/>
                 </div>
                 </br>
+                <div>
+                    <label for="nationality" data-icon="e">Nationality</label>
+                    <form:input type="text"  path="nationality" id="nationality"
+                                placeholder="Country" required="required"/>
+                </div>
+                <div class="has-error">
+                    <form:errors path="nationality" class="help-inline material-red-text "/>
+                    <span class="animated help-inline material-red-text " id="nationalityerror"></span>
+                </div>
+                </br>
                 <label for="userProfiles">Assign Role</label>
 
                 <div>

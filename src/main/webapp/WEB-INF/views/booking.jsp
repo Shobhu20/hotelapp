@@ -29,19 +29,8 @@
 
 <section id="booking" style="margin-top: 5%">
 
-    <sec:authorize access="hasRole('UNVERIFIED')">
-        <div class="flex-center">
-            <div class="alert alert-info waves-effect" style="width: 500px">
-                <strong>Kindly check your email for confirmation. Otherwise you will not be able to book rooms.</strong>
-                <br/><br/>
-                <a class="center-div-horizontal waves-button theme-black white-text"
-                   href="/user/profile-${pageContext.request.userPrincipal.name}/resend">
-                    Resend Confirmation</a>
-            </div>
-        </div>
-    </sec:authorize>
 
-    <sec:authorize access="hasAnyRole('ADMIN', 'MANAGER', 'USER')">
+    <sec:authorize access="hasAnyRole('ADMIN', 'USER')">
         <form:form action="/booking" method="POST" modelAttribute="booking"
                    class="form-horizontal">
             <form:input type="hidden" path="id" id="id"/>

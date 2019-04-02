@@ -58,17 +58,6 @@
                     Delete Profile
                 </a>
 
-                <sec:authorize access="hasRole('UNVERIFIED')">
-
-                    <div class="alert alert-info waves-effect" style="width: 255px">
-                        <strong>Kindly check your email for confirmation.</strong>
-                        <br/><br/>
-                        <a class="center-div-horizontal btn-sm waves-button theme-black white-text"
-                           href="/user/profile-${pageContext.request.userPrincipal.name}/resend">
-                            Resend Confirmation</a>
-                    </div>
-
-                </sec:authorize>
             </div>
         </div>
 
@@ -152,7 +141,7 @@
         <br><br>
         <hr style="visibility: hidden">
 
-        <sec:authorize access="hasAnyRole('ADMIN', 'MANAGER', 'USER')">
+        <sec:authorize access="hasAnyRole('ADMIN', 'USER')">
             <c:choose>
                 <c:when test="${totalbookings > 0}">
 
@@ -187,13 +176,6 @@
                                         <td>${booking.arrivalTime}</td>
                                         <td>${booking.departureTime}</td>
                                         <td>${booking.status}</td>
-                                        <td>
-                                            <c:if test="${booking.status != 'COMPLETED'}">
-                                                <a href="<c:url value='/user/profile/cancel-${booking.id}+confirmed' />"
-                                                   onclick="return confirm('Are you sure you want to cancel this booking? You will have to book room again to recover it.')"
-                                                   class="btn material-red btn-sm table-actions-buttons">Cancel</a>
-                                            </c:if>
-                                        </td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>

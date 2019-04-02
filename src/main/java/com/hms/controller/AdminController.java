@@ -48,17 +48,14 @@ public class AdminController {
     private void setAttributes(ModelMap model) {
         List<User> customers = userService.findAllCustomers();
         List<User> admins = userService.findAllAdmins();
-        List<User> managers = userService.findAllManagers();
         List<Room> rooms = roomService.findAllRooms();
         List<Booking> bookings = bookingService.findAllBookings();
         model.addAttribute("username", getPrincipal());
         model.addAttribute("customers", customers);
         model.addAttribute("admins", admins);
-        model.addAttribute("managers", managers);
         model.addAttribute("rooms", rooms);
         model.addAttribute("bookings", bookings);
         model.addAttribute("totalcustomers", customers.size());
-        model.addAttribute("totalmanagers", managers.size());
         model.addAttribute("totaladmins", admins.size());
         model.addAttribute("totalbookings", bookings.size());
         model.addAttribute("totalrooms", rooms.size());
@@ -221,7 +218,7 @@ public class AdminController {
             return "adminAddRoom";
         }
 
-        room.setStatus(Constant.ROOM_STATUS.UNVERIFIED);
+        room.setStatus(Constant.ROOM_STATUS.VERIFIED);
         roomService.saveRoom(room);
         redirectAttrs.addFlashAttribute("success", "Room " + room.getName() + " was added successfully");
         return "redirect:/admin";
@@ -311,31 +308,6 @@ public class AdminController {
         roomService.deleteRoomById(id);
         redirectAttrs.addFlashAttribute("success", "Room No " + id + " was removed successfully.");
         return "redirect:/admin";
-    }
-
-    /**
-     * @param model attributes required by manager dashboard
-     * @link /manage
-     */
-    @RequestMapping(value = "/manage")
-    public String managerHome(ModelMap model) {
-        setAttributes(model);
-        List<Booking> bookings = bookingService.findPendingBookings();
-        List<Booking> bookings1 = bookingService.findConfirmedBookings();
-        List<Booking> bookings2 = bookingService.findCompletedBookings();
-        List<Room> freerooms = roomService.findFreeRooms();
-        List<Room> unverifiedrooms = roomService.findByStatus(Constant.ROOM_STATUS.UNVERIFIED);
-
-        model.addAttribute("freerooms", freerooms);
-        model.addAttribute("unverifiedrooms", unverifiedrooms);
-        model.addAttribute("totalfreerooms", freerooms.size());
-        model.addAttribute("totalunverifiedrooms", unverifiedrooms.size());
-        model.addAttribute("pendingbookings", bookings);
-        model.addAttribute("confirmedbookings", bookings1);
-        model.addAttribute("completedbookings", bookings2);
-        model.addAttribute("totalpendingbookings", bookings.size());
-        model.addAttribute("totalconfirmedbookings", bookings1.size());
-        return "admin";
     }
 
     /**

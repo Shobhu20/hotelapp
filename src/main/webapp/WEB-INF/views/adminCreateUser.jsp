@@ -63,6 +63,16 @@
                 </div>
                 </br>
                 <div>
+                    <label for="nationality" data-icon="e">Nationality</label>
+                    <form:input type="text"  path="nationality" id="nationality"
+                                placeholder="Country" required="required"/>
+                </div>
+                <div class="has-error">
+                    <form:errors path="nationality" class="help-inline material-red-text "/>
+                    <span class="animated help-inline material-red-text " id="nationalityerror"></span>
+                </div>
+                </br>
+                <div>
                     <label for="password" data-icon="p">Password</label>
                     <form:input type="password" onchange="passwordChecker()" path="password" id="password"
                                 placeholder="password"/>
@@ -89,7 +99,6 @@
                     </div>
                 </div>
                 </br>
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 </br>
                 <div style="text-align: center">
                     <input class="btn btn-blue-grey waves-button waves-light" style="width: 240px; height: 40px"

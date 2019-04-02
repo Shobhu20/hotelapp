@@ -70,13 +70,6 @@ public class UserService {
         return (user == null || ((id != null) && (user.getId() == id)));
     }
 
-    public List<User> findAllManagers() {
-        List<Integer> ids = dao.findByRole(Constant.USER_ROLE.MANAGER);
-        List<User> users = new ArrayList<>();
-        for (Integer id : ids) users.add(findById(id));
-        return users;
-    }
-
     public List<User> findAllCustomers() {
         List<Integer> ids = dao.findByRole(Constant.USER_ROLE.VERIFIED);
         List<User> users = new ArrayList<>();

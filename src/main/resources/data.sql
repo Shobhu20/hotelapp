@@ -7,21 +7,14 @@ VALUES ('USER');
 INSERT INTO USER_PROFILE (type)
 VALUES ('ADMIN');
 
-INSERT INTO USER_PROFILE (type)
-VALUES ('MANAGER');
 
-INSERT INTO USER_PROFILE (type)
-VALUES ('UNVERIFIED');
 
 /*password is admin for all*/
 /* Populate one Admin User which will further create other users for the application using GUI */
 INSERT INTO APP_USER (username, password, first_name, last_name, email, nationality )
 VALUES
   ('admin', '$2a$10$U/j31XjS.vKJ1jUlgcrOoOaY7JXpVV8doQ1IQoPMIwluXMn5EA6tK', 'Test', 'Admin', 'admin@emerging.com', 'Canada');
-INSERT INTO APP_USER (username, password, first_name, last_name, email, nationality)
-VALUES
-  ('manager', '$2a$10$U/j31XjS.vKJ1jUlgcrOoOaY7JXpVV8doQ1IQoPMIwluXMn5EA6tK', 'Test', 'Manager', 'manager@emerging.com',
-   'India');
+
 INSERT INTO APP_USER (username, password, first_name, last_name, email, nationality)
 VALUES
   ('customer', '$2a$10$U/j31XjS.vKJ1jUlgcrOoOaY7JXpVV8doQ1IQoPMIwluXMn5EA6tK', 'Test', 'Customer', 'customer@test.com',
@@ -36,12 +29,6 @@ INSERT INTO APP_USER_USER_PROFILE (user_id, user_profile_id)
   FROM APP_USER AS usr, USER_PROFILE AS profile
   where usr.username = 'admin' and profile.type = 'ADMIN';
 
-INSERT INTO APP_USER_USER_PROFILE (user_id, user_profile_id)
-  SELECT
-    usr.id,
-    profile.id
-  FROM APP_USER AS usr, USER_PROFILE AS profile
-  where usr.username = 'manager' and profile.type = 'MANAGER';
 
 INSERT INTO APP_USER_USER_PROFILE (user_id, user_profile_id)
   SELECT
