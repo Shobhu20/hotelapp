@@ -22,14 +22,8 @@ public class ETLService {
 
     public int doMigration() {
         Date currDate = new Date();
-        Set<Integer> bookingIds = new HashSet<>();
-        Map<Integer, User> users = new HashMap<>();
-
         //get bookings
         List<Booking> bookingsToMigrate= bookingService.findBookingBeforeDate(currDate);
-        //get all ids for bookings
-        //get customers for bookings
-        getBookingIdsAndCustomer(bookingsToMigrate, users, bookingIds);
 
         //transform booking to bookingW
         //transform cust to custW
