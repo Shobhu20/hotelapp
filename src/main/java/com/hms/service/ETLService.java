@@ -20,7 +20,7 @@ public class ETLService {
     @Autowired
     private WareHouseDao wareHouseDao;
 
-    public void doMigration() {
+    public int doMigration() {
         Date currDate = new Date();
         Set<Integer> bookingIds = new HashSet<>();
         Map<Integer, User> users = new HashMap<>();
@@ -38,7 +38,10 @@ public class ETLService {
         //insert custW if not exist
         //insert into fact table
         wareHouseDao.insertIntoWareHouse(factWAndDimensions);
+
         //delete all ids from booking
+
+        return factWAndDimensions.size();
     }
 
     private List<FactWarehouse> createFactWAndDimensions(List<Booking> bookingsToMigrate) {
