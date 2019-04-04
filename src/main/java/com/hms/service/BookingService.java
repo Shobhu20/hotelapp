@@ -68,4 +68,8 @@ public class BookingService {
     public List<Booking> findBookingBeforeDate(Date date) {
         return dao.findByDepartureTimeLessThan(date);
     }
+
+    public void deleteBookingsByIds(List<Integer> bookings) {
+         dao.deleteAllByIds(bookings);
+    }
 }

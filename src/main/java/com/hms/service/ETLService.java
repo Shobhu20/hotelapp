@@ -24,6 +24,9 @@ public class ETLService {
         Date currDate = new Date();
         //get bookings
         List<Booking> bookingsToMigrate= bookingService.findBookingBeforeDate(currDate);
+        List<Integer> ids = new LinkedList();
+        bookingsToMigrate.forEach((e) -> ids.add(e.getId()));
+
 
         //transform booking to bookingW
         //transform cust to custW
@@ -34,6 +37,7 @@ public class ETLService {
         wareHouseDao.insertIntoWareHouse(factWAndDimensions);
 
         //delete all ids from booking
+        bookingService.deleteBookingsByIds(ids);
 
         return factWAndDimensions.size();
     }
