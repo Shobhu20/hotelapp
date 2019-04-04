@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +22,7 @@ public class BookingService {
         Optional<Booking> tmp = dao.findById(id);
         return tmp.orElse(null);
     }
+
 
     public Booking findByRoomId(final int id) {
         return dao.findByRoomId(id);
@@ -62,20 +64,8 @@ public class BookingService {
         return dao.findAll();
     }
 
-    public boolean isBookingUnique(final int id, final int roomId) {
-        Booking booking = findByRoomId(roomId);
-        return ((booking == null) || (booking.getId() == id));
-    }
 
-    public List<Booking> findPendingBookings() {
-        return dao.findByStatus("PENDING");
-    }
-
-    public List<Booking> findConfirmedBookings() {
-        return dao.findByStatus("CONFIRMED");
-    }
-
-    public List<Booking> findCompletedBookings() {
-        return dao.findByStatus("COMPLETED");
+    public List<Booking> findBookingBeforeDate(Date date) {
+        return dao.findByDepartureTimeLessThan(date);
     }
 }
