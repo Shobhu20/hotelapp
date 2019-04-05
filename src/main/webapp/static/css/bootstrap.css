@@ -1947,6 +1947,7 @@ pre code {
 
 select.form-control:not([size]):not([multiple]) {
   height: 2.5rem;
+
 }
 
 select.form-control:focus::-ms-value {

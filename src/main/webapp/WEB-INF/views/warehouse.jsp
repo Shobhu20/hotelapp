@@ -77,42 +77,47 @@
                             <h4 class="modal-title">Modal Header</h4>
                         </div>
                         <form:form action="/findAmountForMonthEachLocation" method="post">
-                           <div style="display: inline-block">
-                               <select name="month" id="month">
-                                   <option selected>--Select Month--</option>
-                                   <option>January</option>
-                                   <option>February</option>
-                                   <option>March</option>
-                                   <option>April</option>
-                                   <option>May</option>
-                                   <option>June</option>
-                                   <option>July</option>
-                                   <option>August</option>
-                                   <option>September</option>
-                                   <option>October</option>
-                                   <option>November</option>
-                                   <option>December</option>
+                            <div class="form-group">
+                                <select   class="form-control" style="margin-top: 10%;margin-left: 10%;" name="month" id="month">
+                                    <option selected>--Select Month--</option>
+                                    <option>January</option>
+                                    <option>February</option>
+                                    <option>March</option>
+                                    <option>April</option>
+                                    <option>May</option>
+                                    <option>June</option>
+                                    <option>July</option>
+                                    <option>August</option>
+                                    <option>September</option>
+                                    <option>October</option>
+                                    <option>November</option>
+                                    <option>December</option>
 
-                               </select>
-
-                               <select name="year" id="year">
-                                   <option selected>--Select Year--</option>
-                                   <option>2018</option>
-                                   <option>2019</option>
-                               </select>
-                           </div>
-
-                            <div class="grid center-div">
-                                <button type="submit" value="Submit"
-                                        class="btn btn-primary waves-button waves-light light-blue"
-                                        style="width: 240px;">SUBMIT
-                                </button>
+                                </select>
                             </div>
 
+                            <div class="form-group">
+                                <select class="form-control" style="margin-left: 10%;margin-top: 10%;margin-bottom: 10%;" name="year" id="year">
+                                    <option selected>--Select Year--</option>
+                                    <option>2018</option>
+                                    <option>2019</option>
+                                </select>
+                            </div>
+
+
+
+
+
+
+                        <div class="modal-footer">
+                            <button type="submit" value="Submit"
+                                    class="btn btn-primary waves-button waves-light light-blue"
+                                    style="width: 240px; margin-right: 30% ">Submit
+                            </button>
+
+                        </div>
+
                         </form:form>
-                        <%--<div class="modal-footer">--%>
-                            <%--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
-                        <%--</div>--%>
                     </div>
 
                 </div>
@@ -125,11 +130,11 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Modal Header</h4>
+                            <h4 class="modal-title">Select Query Parameters</h4>
                         </div>
                         <form:form action="/findTotalAmountEarnedByAllLocation" method="post">
-                          <div class="form-group-sm">
-                              <select   class="form-control" style="margin-top: 5px; margin-left: 5px; margin-right: 20% " name="month" id="month">
+                          <div class="form-group">
+                              <select   class="form-control" style="margin-top: 10%;margin-left: 10%;" name="month" id="month">
                                   <option selected>--Select Month--</option>
                                   <option>January</option>
                                   <option>February</option>
@@ -147,25 +152,27 @@
                               </select>
                           </div>
 
-
-                            <select  style="margin-left: 10%" name="year" id="year">
-                                <option selected>--Select Year--</option>
-                                <option>2018</option>
-                                <option>2019</option>
-                            </select>
-
-                            <div class="grid center-div">
-
+                            <div class="form-group">
+                                <select class="form-control" style="margin-left: 10%;margin-top: 10%;margin-bottom: 10%;" name="year" id="year">
+                                    <option selected>--Select Year--</option>
+                                    <option>2018</option>
+                                    <option>2019</option>
+                                </select>
                             </div>
 
-                        </form:form>
+
+
+
+
+
                         <div class="modal-footer">
                             <button type="submit" value="Submit"
                                     class="btn btn-primary waves-button waves-light light-blue"
-                                    style="width: 240px; ">Search for both locations
+                                    style="width: 240px; margin-right: 30% ">Submit
                             </button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
                         </div>
+                        </form:form>
                     </div>
 
                 </div>
