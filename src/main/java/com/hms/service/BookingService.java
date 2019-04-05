@@ -70,6 +70,8 @@ public class BookingService {
     }
 
     public void deleteBookingsByIds(List<Integer> bookings) {
+        if(bookings==null || bookings.isEmpty())
+            return;
          dao.deleteAllByIds(bookings);
     }
 }
