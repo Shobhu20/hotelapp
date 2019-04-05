@@ -76,4 +76,14 @@ public class WarehouseController {
         return "olapresult4";
     }
 
+    @RequestMapping(value = "numOfBookingsWithBookingGreaterThanXDays", method = RequestMethod.POST)
+    public String numOfBookingsWithBookingGreaterThanXDays(@RequestParam("x") Integer x, ModelMap map){
+        Map<String, Map< String , String > > resultMap = olapService.numOfBookingsWithBookingGreaterThanXDays(x);
+        map.put("result",resultMap);
+        map.put("colHeader1","Number of Days");
+        map.put("colHeader3","Total Amount");
+        map.put("colHeader2", "Booking Count");
+        return "olapresult5";
+    }
+
 }
