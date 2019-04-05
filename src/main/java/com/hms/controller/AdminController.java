@@ -264,26 +264,11 @@ public class AdminController {
             FieldError nameError = new FieldError("room", "name", messageSource.getMessage("non.unique.room", new String[]{room.getName()}, Locale.getDefault()));
             result.addError(nameError);
             return "editRoom";
-        } /*else if (room.getPrice() < room.getType().getBasePrice()) {
-            FieldError priceError = new FieldError("room", "price", messageSource.getMessage("conflict.room_price", new String[]{room.getType().getType()}, Locale.getDefault()));
-            result.addError(priceError);
-            return "editRoom";
-        }*/
+        }
 
         Room r = roomService.findById(id);
-/*        if (!(r.getPrice().equals(room.getPrice()))) {
-            r.setStatus(Constant.ROOM_STATUS.UNVERIFIED);
-            r.setPrice(room.getPrice());
-        }*/
         r.setType(room.getType());
-/*
-        r.setBath(room.getBath());
-*/
         r.setBooking(room.getBooking());
-        /*r.setBed(room.getBed());*/
-/*
-        r.setCapacity(room.getCapacity());
-*/
         r.setDescription(room.getDescription());
         r.setName(room.getName());
         roomService.updateRoom(r);
