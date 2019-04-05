@@ -7776,6 +7776,7 @@ i.btn-danger {
 
 .card {
     border: 0;
+    padding: 5px;
 }
 
 .card .card-title a {

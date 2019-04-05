@@ -104,7 +104,7 @@ d.monthname = 'March' and d.year = 2019 group by l.loc_city
 --select sum(f.amount) ,c.cust_nationality from facttable f , customer_dimension c
 where f.cust_id = c.cust_id and
 c.cust_nationality != 'mexico' and c.cust_nationality != 'nigeria' group by c.cust_nationality*/
-    public Map findAmountEarnedByEachForiegnerCountry() {
+    public Map findAmountEarnedByEachForeignerCountry() {
         Map<String, String> resultMap = new HashMap<>();
         String sql ="select sum(f.amount) as tot_amttt ,c.cust_nationality from facttable f , customer_dimension c where f.cust_id = c.cust_id and" +
                 " c.cust_nationality != 'mexico' and c.cust_nationality != 'nigeria' group by c.cust_nationality";
@@ -186,9 +186,9 @@ where  f.booking_id = b.booking_id and  datediff(day,b.from_date,b.to_date) > 1 
 
 --select max(amount)  from facttable f, date_dimension d,customer_dimension c where   f.datekey = d.datekey and  d.year = 2019*/
 
-    public Integer findMaxBookingAmountForYear(String year) {
-        String sql ="select max(amount) as max_amount from facttable f, date_dimension d,customer_dimension c where   f.datekey = d.datekey and  d.year =" +
-                 year;
+    public Integer findMaxBookingAmountForMonth(String month) {
+        String sql ="select max(amount) as max_amount from facttable f, date_dimension d,customer_dimension c where   f.datekey = d.datekey and  d.monthname =" +
+                 getQuotedString(month);
         try {
             Connection conn  = ds.getConnection();
             Statement stmt = conn.createStatement();

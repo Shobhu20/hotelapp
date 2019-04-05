@@ -21,6 +21,20 @@ public class OlapService {
 
     public Map findAmountEarnedByForiegnersForYear(String year) {
 
-        return wareHouseDao.findAmountEarnedByEachForiegnerCountry();
+        return wareHouseDao.findAmountEarnedByEachForeignerCountry();
+    }
+
+    public Map findAmountEarnedByEachForiegnerCountry(){
+
+        return wareHouseDao.findAmountEarnedByEachForeignerCountry();
+    }
+    public Integer findTotalAmountEarnedByAllLocation(String month, String year){
+
+        return wareHouseDao.findTotalAmountEarnedByAllLocation(month,year);
+    }
+
+    public Integer findMaxBookingAmountForMonth(String month){
+
+        return wareHouseDao.findMaxBookingAmountForMonth(month);
     }
 }
