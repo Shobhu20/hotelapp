@@ -113,7 +113,7 @@ c.cust_nationality != 'mexico' and c.cust_nationality != 'nigeria' group by c.cu
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
-                String amount = rs.getString("tot_amtt");
+                String amount = rs.getString("tot_amttt");
                 String nationality = rs.getString("cust_nationality");
                 resultMap.put(nationality, amount);
             }
