@@ -48,7 +48,7 @@
                 <form:form action="/findAmountEarnedByEachForiegnerCountry" method="post">
                     <tr>
                         <td style="font-size: 20px; font-family:'Verdana' ">
-                            Get the sum of amount earned by customers who are NOT from the country of hotel
+                            Get the sum of amount earned by bookings from customers who are NOT from the country of hotel
                         </td>
                         <td>
                             <button type="submit" class="btn btn-primary waves-button waves-light light-blue" value="submit" >Search</button>

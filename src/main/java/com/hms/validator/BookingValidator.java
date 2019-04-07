@@ -51,13 +51,7 @@ public class BookingValidator implements Validator {
             p.printStackTrace();
         }
 
-        if (currentTime != null) {
-            if (booking.getArrivalTime().before(currentTime)) {
-                errors.rejectValue("arrivalTime", "non.error.before_arrival");
-            } else if (booking.getDepartureTime().before(currentTime)) {
-                errors.rejectValue("departureTime", "non.error.before_departure");
-            }
-        }
+//
         if (booking.getArrivalTime().after(booking.getDepartureTime())) {
             errors.rejectValue("arrivalTime", "non.error.arrival_after");
             errors.rejectValue("departureTime", "non.error.departure_before");

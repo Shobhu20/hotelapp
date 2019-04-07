@@ -44,7 +44,8 @@
                    placeholder="Enter to date"/>
         </p>
         <input class="btn btn-primary waves-button waves-light light-blue"
-               style="width: 240px; height: 40px" type="submit" onclick="return compareDate()" value="Show Rooms"/>
+               style="width: 240px; height: 40px" type="submit"  value="Show Rooms"/>
+        <%--onclick="return compareDate()"--%>
     </div>
 </div>
 </form:form>
